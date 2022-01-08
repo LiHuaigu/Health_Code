@@ -2,13 +2,15 @@ int ButtonA = LOW;
 int ButtonB = LOW;
 int ButtonC = LOW;
 int ButtonD = LOW;
+int pinBuzzer = 3;//buzzer pin 3
 
 void setup() {
   
-  pinMode(8, INPUT);
+  pinMode(8, INPUT);//button A pin 8
   pinMode(9, INPUT);
   pinMode(10, INPUT);
   pinMode(11, INPUT);
+  pinMode(pinBuzzer, OUTPUT);
   Serial.begin(9600);
 }
 
@@ -20,6 +22,9 @@ void loop() {
 
   if (ButtonA == HIGH){
     Serial.println("A");
+    digitalWrite(pinBuzzer, HIGH);//play the sound while button pressed
+    delay(300);
+    digitalWrite(pinBuzzer, LOW);
     delay(300);
     }
   if (ButtonB == HIGH){
@@ -35,5 +40,4 @@ void loop() {
     delay(300);
     }
   
-
 }
